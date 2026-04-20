@@ -63,6 +63,10 @@ for y in range(height):
             
             currentCount = 1
             prevColour = rgb
+
+    colourName = colourMap[prevColour]
+    with open ("scales.txt", "a") as f:
+        f.write(f"SC{currentCount} in {colourName}, ")
     
     with open ("scales.txt", "rb+") as f:
         f.seek(-2, 2)
