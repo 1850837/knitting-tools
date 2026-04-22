@@ -1,7 +1,7 @@
 from PIL import Image
 from PIL import ImageDraw
 
-img = Image.open('Full pattern until legs (Edited) (Edited) (Edited).png')
+img = Image.open('Full pattern but wider this time.png')
 
 # Change the value of colors for number of colors desired
 # The methods need more investigation if unhappy
