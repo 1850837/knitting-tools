@@ -93,6 +93,11 @@ YARN_COLORS = {
 
 def get_closest_yarn(pixel_rgb):
     r1, g1, b1 = pixel_rgb[:3] # Grab first 3 in case of RGBA
+
+    for colour, (r2, g2, b2) in YARN_COLORS.items():
+        if (r1, g1, b1) == (r2, g2, b2):
+            return colour
+
     min_dist = float('inf')
     match = "unknown"
     for name, (r2, g2, b2) in YARN_COLORS.items():
@@ -116,8 +121,8 @@ with open("scales.txt", "w") as f:
     
     # We range (height-1, -1, -1) to start from the BOTTOM of the image.
     # Change to range(height) if you want to start from the TOP.
-    for y in range(height - 1, -1, -1):
-        row_num = height - y # This labels the bottom row as Row 1
+    for y in range(height):
+        row_num = y + 1 # This labels the bottom row as Row 1
         row_data = []
         
         # Start the row logic
@@ -126,6 +131,7 @@ with open("scales.txt", "w") as f:
         count = 0
         
         for x in range(width):
+
             current_name = get_closest_yarn(img.getpixel((x, y)))
             
             if current_name == prev_name:
