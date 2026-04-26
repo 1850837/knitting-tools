@@ -109,7 +109,7 @@ def get_closest_yarn(pixel_rgb):
 
 # Load and standardize
 try:
-    img = Image.open('Full pattern but wider this time.png').convert('RGB')
+    img = Image.open('ANOTHER one.png').convert('RGB')
 except FileNotFoundError:
     print("Error: Image file not found. Check the filename/extension!")
     exit()
